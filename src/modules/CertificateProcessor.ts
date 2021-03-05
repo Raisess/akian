@@ -24,6 +24,15 @@ export default class CertificateProcessor implements ICertificateProcessor {
 		this.ctx.drawImage(image, 0, 0, this.canvas.width, this.canvas.height);
 	}
 
+	public measureText(text: string): { width: number; height: number; } {
+		const measuredText: any = this.ctx.measureText(text);
+
+		return {
+			width: 	measuredText.width,
+			height: measuredText.height
+		}
+	}
+
 	public writeText(text: string, position: { x: number; y: number; }, font: string = this.currentFont): void {
 		this.ctx.font = font;
 
