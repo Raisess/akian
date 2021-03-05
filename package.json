@@ -1,0 +1,26 @@
+{
+  "name": "akian",
+  "version": "1.0.0",
+  "description": "Auto complete courses certificates tool.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "node ./dist",
+    "compile": "tsc -p ./tsconfig.json",
+    "clean": "rm -r ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raisess/akian.git"
+  },
+  "author": "Raisess",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raisess/akian/issues"
+  },
+  "homepage": "https://github.com/Raisess/akian#readme",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "dotenv": "^8.2.0"
+  }
+}
