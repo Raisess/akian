@@ -4,8 +4,7 @@ import { createCanvas, loadImage } from "canvas";
 import { ICertificateProcessor } from "../interfaces/ICertificate";
 
 export default class CertificateProcessor implements ICertificateProcessor {
-	private readonly certificate: string = __dirname + "/../../public/templates/";
-
+	private certificate: string = __dirname + "/../../public/templates/";
 	private canvas:      any;
 	private ctx:         any;
 	private currentFont: string;
