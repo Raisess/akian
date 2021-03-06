@@ -1,6 +1,7 @@
 import "dotenv/config";
 
 import CertificateProcessor from "./modules/CertificateProcessor";
+import ListParser from "./modules/ListParser";
 
 const config: {
 	width:  number;
@@ -10,15 +11,20 @@ const config: {
 	height: parseInt(process.env.HEIGHT!)
 };
 
-const certificate: CertificateProcessor = new CertificateProcessor("default.png", { width: config.width, height: config.height });
+const listParser: ListParser = new ListParser();
+
+const parsedList: Array<string> = listParser.getList();
 
 (async (): Promise<void> => {
-	await certificate.loadTemplate();
 
-	const name: string = "Danilo Santana de Oliveira";
+	for (const name of parsedList) {
+		const certificate: CertificateProcessor = new CertificateProcessor("default.png", { width: config.width, height: config.height });
+		
+		await certificate.loadTemplate();
 
-	certificate.writeText(name, { x: (config.width / 2) - (certificate.measureText(name).width / 2), y: (config.height / 2) - 55 });
+		certificate.writeText(name, { x: (config.width / 2) - (certificate.measureText(name).width / 2), y: (config.height / 2) - 55 });
 
-	certificate.create("output.png");
+		certificate.create(name + ".png");
+	}
 })();
 
