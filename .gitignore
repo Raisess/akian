@@ -1,5 +1,6 @@
 /node_modules
 /dist
 /public
+people_list.txt
 .env
 
